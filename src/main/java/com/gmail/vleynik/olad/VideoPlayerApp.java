@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class VideoPlayerApp extends Application {
     public static File videoFile;
@@ -25,8 +26,8 @@ public class VideoPlayerApp extends Application {
         primaryStage.setY(0);
         primaryStage.show();
 
-
-        ControlPanelStageSetup cpStageSetup = new ControlPanelStageSetup ("ControlPanel.fxml", primaryStage, mediaViewSetup, videoFile);
+        String controlPanelFXML = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "ControlPanel.fxml").toString();
+        ControlPanelStageSetup cpStageSetup = new ControlPanelStageSetup (controlPanelFXML, primaryStage, mediaViewSetup, videoFile);
         cpStageSetup.getControlPanel().show();
     }
 

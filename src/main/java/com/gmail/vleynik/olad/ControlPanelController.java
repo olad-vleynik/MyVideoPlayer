@@ -11,6 +11,7 @@ import javafx.util.Duration;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class ControlPanelController {
 
@@ -49,7 +50,7 @@ public class ControlPanelController {
     private void openNew(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Video files", "*.mp4");
-        fileChooser.setInitialDirectory(new File("resources"));
+        fileChooser.setInitialDirectory(Paths.get(System.getProperty("user.dir"), "src", "main", "resources").toFile());
         fileChooser.getExtensionFilters().add(filter);
         File videoFile = fileChooser.showOpenDialog(primaryStage);
         if (videoFile != null) {

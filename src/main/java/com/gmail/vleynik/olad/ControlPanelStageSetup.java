@@ -9,13 +9,13 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 import java.io.File;
-import java.util.Objects;
+import java.net.URL;
 
 public class ControlPanelStageSetup {
     private final Stage controlPanel = new Stage();
 
     public ControlPanelStageSetup (String fxmlFile, Stage primaryStage, MediaViewSetup mediaViewSetup, File videoFile) throws Exception {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(fxmlFile)));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ControlPanel.fxml"));
         Parent root = loader.load();
 
         ControlPanelController controlPanelController = loader.getController();
